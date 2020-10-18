@@ -21,3 +21,8 @@ class Contact(models.Model):
     state = USStateField(null=True, blank=True)
     zip_code = USZipCodeField(null=True, blank=True)
     birthday = models.DateField(auto_now=False, null=True, blank=True)
+
+class Note(models.Model):
+    timestamp = models.DateTimeField(auto_now=True)
+    body = models.TextField(null=True, blank=True)
+    contact = models.ForeignKey("Contact", on_delete=models.CASCADE)
