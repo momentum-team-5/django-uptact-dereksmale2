@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Add Note</h1>
+<h1>Contact for {{ contact.name }}</h1>
 
 <div class="flex flex-wrap">
 <div class="w-33 pa3">
@@ -38,12 +38,11 @@
     </div>
     {% endif %}
 
-    <h2>Your Note</h2>
-
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Create this Note"
-    </form>
+    {% if note %}
+    <div class="flex">
+        <p>{{ note.body }}</p>
+        <p><em>On</em>({{ note.timestamp }})</p>
+    </div>
+    {% endif %}
 
 {% endblock %}
