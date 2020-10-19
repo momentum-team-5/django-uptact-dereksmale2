@@ -59,4 +59,4 @@ def add_note(request, pk):
             note.save()
             return redirect(to='list_contacts')
 
-    return render(request, "contacts/add_note.html", {"form": form, "comntact": contact })
+    return render(request, "contacts/add_note.html", {"form": form, "contact": contact })
